@@ -2,13 +2,16 @@ package chapter3
 
 import akka.actor.{Props, ActorSystem}
 import akka.testkit.TestKit
+import com.goticks.StopSystemAfterAll
 import org.scalatest.{MustMatchers, WordSpecLike}
 
 /**
  * @author jiakuanwang
  */
 class SendingActorSpec extends TestKit(ActorSystem("testsystem"))
-                               with WordSpecLike with MustMatchers {
+                               with WordSpecLike
+                               with MustMatchers
+                               with StopSystemAfterAll {
 
   "A Sending Actor" must {
     "send a message to an actor when it has finished" in {

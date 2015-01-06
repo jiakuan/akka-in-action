@@ -2,13 +2,16 @@ package chapter3
 
 import akka.actor.{Props, ActorSystem}
 import akka.testkit.{TestActorRef, TestKit}
+import com.goticks.StopSystemAfterAll
 import org.scalatest.{MustMatchers, WordSpecLike}
 
 /**
  * @author jiakuanwang
  */
 class SilentActorSpec extends TestKit(ActorSystem("testsystem"))
-                              with WordSpecLike with MustMatchers {
+                              with WordSpecLike
+                              with MustMatchers
+                              with StopSystemAfterAll {
 
   "A Silent Actor" must {
     "change internal state when it receives a message, single" in {
